@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="num3style.css">
+    <title>Project 3</title>
+</head>
+<body>
+
+    <div id="titlebg" class="title">
+        <h3>Guess a Lucky Number Between 1 - 100.</h3> 
+        <p>Try it, you may get a chance to win a plane ticket to Europe! </p>
+    </div>
+
+    <div class="container">
+        <div class="resetButton">
+            <button class="playButton" onclick="resetGame()" value="reset">Play Again!</button>
+        </div>
+        <div id="guessingGameContainer" class="guessing">
+            <div id="scoreborder" class="score">
+                <p id="p1"> &#127774 Start Guessing...</p>
+                <br><br>
+                <span id="numberAttempt"> &#127942; Score: <a id="scoreNumber">10</a> </span>
+                <br><br>
+                <span id="highestScore"> &#128081; HighestScore: <a id="highestScoreNumber">0</a></span>
+                <br>
+                <img class="imgzoom" src="img/2.jpg" alt="travel image">
+            </div>
+
+            <div id="gameborder" class="gameContainer">
+                <h3>Guess Your Number</h3>
+                <div class="game">
+                    <p id="display"> &#128563; ? ? ?</p>
+                </div>
+                <input id="randomnumber" class="inputNumber" type="number" onfocus="this.value=''" placeholder="Input your number"><br><br>
+                <button id="checkButton" class="checkButton" onclick="updateValue()">Check!</button>
+            </div>
+        </div>
+
+
+        <div class="footerdiv">
+            <h4> 2021&copy; Project by Shuyi Wu & Daming Huang </h4>
+            <a href="index.html">Return to Portfolio</a>
+        </div>
+    </div>
+
+
+
+    <script src="num3script.js"></script>
+</body>
+</html>

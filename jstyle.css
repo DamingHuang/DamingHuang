@@ -1,0 +1,240 @@
+body{
+ font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+  margin-top:10px;
+  background-color:powderblue;
+  border:solid white 1px;
+  overflow: hidden;  /*avoid content jumps out the container*/
+}
+
+
+
+.main1{
+
+  margin-top:10px;
+
+  background:rgba(176,224,230, 0.7);
+   border:solid white 1px;
+  overflow: hidden;  /*avoid content jumps out the container*/
+
+}
+
+
+
+footer A{
+  text-decoration: NONE;
+  color: #FFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fujilink{
+  text-decoration:none;
+  color:white;
+}
+.box1,.box2{
+
+    text-align:center;
+    display:flex;
+}
+
+.box2{
+text-align:center;
+
+  float:right;
+}
+
+
+.Sub h1{
+  text-align:center;
+
+}
+
+img{
+  width:320px;
+  height:213px;
+}
+
+
+table ,th, td  {
+  border-collapse: collapse;
+
+border:solid 1px;
+
+}
+.ExpBox{
+
+  display:FLEX;
+  overflow:HIDDEN;
+ justify-content:center;
+
+  text-align:center;
+  background:rgb(255,250,250);
+
+}
+
+.E1{
+
+      margin:12px;
+      overflow:hidden;
+}
+
+.E1:hover img {
+/* hover img */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0);
+ transform: scale(1.1);
+}
+
+
+Footer  {
+
+Text-align:center;
+background-color:powderblue;
+width:100%;
+
+
+
+ margin-top:60px;
+}
+
+.FLI  {
+display:inline;
+color:black;
+}
+
+li{
+list-style:none;
+
+
+}
+
+
+
+
+.A1{
+
+color:black;
+text-decoration:none;
+
+}
+.A1:hover{
+
+color:black;
+text-decoration:none;
+
+}
+
+
+.BIGBOYDIV{
+
+DISPLAY:FLEX;
+justify-content:center;
+
+
+
+}
+.MessageDiv{
+
+ margin:20px;
+
+}
+ .b1 {
+
+float:right;
+color:black;
+
+ }
+
+.b1:hover{
+
+background-color:#EBF5FB;
+
+}
+.biaoqingbao{
+  width:129px;
+  height:120px;
+}
+
+ .FujiExpBox,.Kasugataishbox{
+  background:rgb(255,250,250);
+ }
+
+.Bathing,.Kasugataisha{
+  margin:22px;
+     display:flex;
+}
+
+.BathingContent,.Kasugataishacontent{
+  margin:22px;
+
+}
+
+.HotSpring{
+  display:flex;
+  float:right;
+
+}
+
+
+.HotSpringContent{
+    float:right;
+    margin:22px;
+
+}
+.Climbing{
+  text-align:center;
+  justify-content:center;
+}
+
+.fuji{
+  height:502px;
+  width:650px;
+}
+
+.path{
+  width: 1525px;
+  height:350px;
+}
+hr{
+  border:white 1px;
+}
+
+
+
+/* Navbar */
+
+
+
+  nav{
+    border:1px linear-gradient(to left, aliceblue ,aliceblue,white);
+     solid;
+    overflow:hidden;
+    background:linear-gradient(to left, aliceblue ,aliceblue,white);
+
+
+  }
+
+  nav a{
+   float:right;
+   color:gray;
+   margin-top:85px;
+   margin-right:12px;
+  }
+
+  .logo{
+    width:110px;
+    heiht:110px;
+  }

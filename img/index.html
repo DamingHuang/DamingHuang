@@ -1,0 +1,406 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+
+
+        .banner{
+            display:flex;
+            justify-content: space-evenly;
+            background-image:url('NA');
+            border:none;
+
+        }
+        .btn_container{
+            text-align: center;
+            overflow:hidden;
+                  position: absolute;
+           margin-left:550px
+
+        }
+
+        button{
+            margin-top:350px;
+           border:none;
+           border-radius:10px;
+            background:#c40b00;
+            font-size: 26px;
+            color: #eba534;
+
+
+
+
+        }
+
+
+
+
+        img{
+
+            width: inherit;
+
+
+        }
+        .outterfix{
+          display: flex;
+          justify-content: center;
+        }
+
+        .Wrap{
+
+          background-repeat:no-repeat,repeat;
+              background-image: url("lattern.jpg"),url("back2.jpg");
+              max-width: 1400px;
+              max-height:100%;
+              overflow:auto;
+              overflow-x: hidden;
+              -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+
+        }
+            .Menu{
+
+
+
+               margin-top:500PX;
+               max-width: 1400px;
+               max-height:100%;
+                display:grid;
+                grid-template-columns:25% 15% 25% 15%;
+                grid-template-rows:auto auto auto auto;
+                grid-row-gap:2px;
+                grid-column-gap:20px;
+                margin-left: 20px;
+                position:relative;
+
+
+
+
+
+
+
+
+
+
+
+             }
+
+            .Food-Image{
+
+
+
+                overflow:hidden;
+
+            }
+
+            .Food-Information{
+
+
+            }
+
+            .Food-Title{
+
+                margin-top:50px;
+
+                overflow:hidden;
+
+
+
+            }
+
+            .Price{
+
+                margin-top:5px;
+
+            }
+            .icon{
+                width: 100px;
+            }
+
+
+    </style>
+</head>
+<body>
+  <a href="../index.html"> Return to Portfolio</a>
+<div class="outterfix">
+   <div class="Wrap" >
+     <div class="btn_container">
+
+                 <button class="btn-filter" type="button" data-id="all">All</button>
+         <button class="btn-filter" type="button" data-id="Soup" >Soups</button>
+         <button class="btn-filter" type="button" data-id="Appetizers">Appetizers</button>
+
+
+     </div>
+
+         <div class="Menu">
+
+
+
+         </DIV>
+
+
+
+
+</div>
+</div>
+</div>
+
+
+<script>
+
+const FoodMenu = [
+            {
+                Number:1,
+                title:"Vegetable Egg Roll",
+                category: "Appetizers",
+                img:"img/VegetableEggRoll.png ",
+                price:1.00
+            },
+
+        {         Number:2,
+                title:"Shrimp Egg Roll",
+                category:"Appetizers",
+                img:"img/ShrimpEggroll.png",
+                price:1.10
+            },
+              {
+                Number:3,
+                title:"Cold Noodles*with sesame sauce",
+                category:"Appetizers",
+                img:"img/ColdSpicyNoodlesSesameSauce.jpg",
+                price:3.50
+            },
+              { Number:4,
+                title:"Roast Pork Egg Roll",
+                category: "Appetizers",
+                img:"img/RoastedPorkEggroll.jpg",
+                price:1.05
+            },
+              { Number:5,
+                title:"Shrimp Toast",
+                category: "Appetizers",
+                img:"img/ShrimpToast.jpg",
+                price:2.25
+            },
+              { Number:6,
+                title:"Roast Pork",
+                category: "Appetizers",
+                img:"img/RoastPork.jpg",
+                price:4.95
+            },
+              { Number:7,
+                title:"Bar-B-Q Boneless Spare Ribs",
+                category: "Appetizers",
+                img:"img/bbqBonelessSpareRibsjpg.jpg",
+                price:4.50
+            },
+
+          {     Number:8,
+                title:"Fried Wontons",
+                category: "Appetizers",
+                img:"img/FriedWontons.jpg",
+                price:3.00
+            },
+                {
+            Number:26,
+            title:"Seafood Mixed Vegetable",
+            category: "Soup",
+            img:"img/SEAFOODvegsoup.jpg",
+            price:5.95 },
+          //   {
+          //     Number:
+          //     title:"House Special "
+          //     category: "Appetizers",
+          //     img:" .jpg",
+          //     price: Na
+          // },
+          {
+            Number:25,
+            title:"Shrimp Or Beef Yat Gan Mein",
+            category: "Soup",
+            img:"img/RoastPorkOrBeefYatGanMein.jpg",
+            price:4.75
+        },
+        {
+          Number:23,
+          title:" Roast Pork Or Chicken Yat Gan Mein",
+          category: "Soup",
+          img:"img/RoastPorkOrChickenYatGanMein.jpg",
+          price: 4.25
+      },
+      {
+        Number:22,
+        title:" Shrimp with mixed vegetable",
+        category: "Soup",
+        img:"img/Shrimpwitmixedvegetable.jpg",
+        price: 2.75
+    },
+    {
+      Number:21,
+      title:"Mixed Vegetable",
+      category: "Soup",
+      img:"img/MixedVegetable.jpg",
+      price: 1.65
+  },
+  {
+    Number:20,
+    title:"Hot & Sour*",
+    category: "Soup",
+    img:"img/HNSOUR.jpg",
+    price: 1.65
+},
+{
+  Number:19,
+  title:"Chicken Noodle Or Rice",
+  category: "Soup",
+  img:"img/Chinese-Chicken-Noodle-Soup.jpg",
+  price: 1.25
+},
+{
+  Number:18,
+  title:"Chicken Corn",
+  category: "Soup",
+  img:"img/SweetCornChickenSoup.jpg",
+  price: 1.70
+},
+{
+  Number:17,
+  title:"Wonton Egg Drop Mixed",
+  category: "Soup",
+  img:"img/wontonegg.jpg",
+  price: 1.70
+},
+{
+  Number:16,
+  title:"Egg Drop",
+  category: "Soup",
+  img:"img/eggdropsoup.jpg",
+  price: 1.25
+},
+{
+  Number:15,
+  title:"Wonton",
+  category: "Soup",
+  img:"img/wontonsoup.jpg",
+  price:1.40
+},
+{
+  Number: 13,
+  title:"Noodles Szechuan Sauce",
+  category: "Appetizers",
+  img:"img/spicysichuannoodles-2.jpg",
+  price: 2.95
+},
+{
+  Number:14,
+  title:"Bar-B-Q Beef Stick",
+  category: "Appetizers",
+  img:"img/BarBQBeefStick.jpg",
+  price: 4.25
+},
+{
+  Number:12,
+  title:"Wonton Szechuan Sauce*",
+  category: "Appetizers",
+  img:"img/WontonSzechuanSauce.jpg",
+  price: 4.25
+},
+{
+  Number:11,
+  title:"Steamed Or Fried Vegetable Dumplings",
+  category: "Appetizers",
+  img:"img/SteamedOFriedDumplings.jpg",
+  price: 4.00
+},
+{
+  Number:10,
+  title:"Steamed Or Fried Dumplings",
+  category: "Appetizers",
+  img:"img/SteamedOFriedDumplings.jpg",
+  price: 4.00
+},
+ {
+ Number:9,
+ title:"Bar-B-Q Spare Ribs",
+ category: "Appetizers",
+ img:"img/BarBQSpareRibs.jpeg",
+ price:4.50
+ },
+
+        ]
+
+
+        const FoodImg = document.querySelector(".Menu");
+
+        window.addEventListener("DOMContentLoaded",function(){
+            console.log('blank')
+            displayFoodItems(FoodMenu);
+
+        });
+
+        function displayFoodItems(menuItems){
+
+            let displayMenu = menuItems.map(function(fitem){
+                //  console.log(fitem)
+
+                return `
+
+
+
+         <div class="Food-Image">
+
+            <img src="${fitem.img}" alt="">
+
+         </div>
+
+          <div class="Food-Information">
+
+            <div class="Food-Title"><h4>${fitem.title}</h4></div>
+            <div class="Price">$${fitem.price}</div>
+
+        </div>
+
+
+        `;
+
+
+
+            });
+            console.log(displayMenu);
+           FoodImg.innerHTML = displayMenu.join("");
+
+        }
+
+
+//filter Btns
+const BtnContainer = document.querySelector(".btn_container")
+const btnfilter = BtnContainer.querySelectorAll(".btn-filter")
+             console.log(btnfilter)
+
+  btnfilter.forEach(function (btn) {
+  btn.addEventListener("click",function(e) {
+            console.log(e.currentTarget.dataset);
+            const category = e.currentTarget.dataset.id;
+            const menuCategory = FoodMenu.filter(function (FoodMenuItem) {
+    if(FoodMenuItem.category==category){
+        return FoodMenuItem;
+    }
+      });
+    if(category==="all"){
+         displayFoodItems(FoodMenu);
+    }else{
+        displayFoodItems(menuCategory);
+    }
+});
+           });
+
+
+
+
+
+</script>
+</body>
+</html>
