@@ -17,7 +17,7 @@ Remote Desktop can't connect to the remote computer for one of these reasons:
 
 Remote access to the server is not enabled
 
-1. he remote computer is turned off
+1. The remote computer is turned off
 
 2. The remote computer is not available on the network
 
