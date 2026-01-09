@@ -9,7 +9,7 @@ echo "=== AWS EC2 RDP Troubleshooting Commands ==="
 echo "1. Checking instance details..."
 aws ec2 describe-instances --instance-ids i-0e3229b9ac12f5a39 --output table
 
-```bash
+```shell
 ~ $ aws ec2 describe-instances --instance-ids i-0e3229b9ac12f5a39 --output table
 ------------------------------------------------------------------------------------------
 |                                    DescribeInstances                                   |
