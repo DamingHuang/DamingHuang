@@ -41,8 +41,8 @@ print(f"  Used:    {disk_used:.1f} GB")
 print(f"  Free:    {disk_free:.1f} GB")
 print(f"  Usage:   {disk_percent:.1f}%")
 if disk_percent > 80:
-    print("  ⚠️  WARNING: Disk usage too high!")
+    print("WARNING: Disk usage too high!")
 else:
-    print("  ✅  Normal")
+    print("Normal")
 
 print(f"\n{'='*50}")
