@@ -12,3 +12,36 @@ A lightweight Python-based monitoring agent designed to track system CPU and Mem
 ## 🛠 Prerequisites
 - Python 3.x
 - A Discord Webhook URL
+## 🚀 Quick Start
+
+### 1. Environment Setup
+```bash
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the environment
+# On Linux/macOS:
+source venv/bin/activate
+# On Windows:
+.\venv\Scripts\activate
+
+# Install dependencies
+pip install requests psutil
+
+```
+
+### 2. Configuration
+Create a `config.json` file in the project root and add your details:
+
+```json
+{
+  "cpu_threshold": 20,
+  "mem_threshold": 20,
+  "webhook_url": "[https://discord.com/api/webhooks/your_id_here](https://discord.com/api/webhooks/your_id_here)"
+}
+```
+### 3. Run the Monitor
+
+```bash
+python alert.py
+```
