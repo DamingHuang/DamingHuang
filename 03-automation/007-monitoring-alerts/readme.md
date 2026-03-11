@@ -8,6 +8,15 @@ A lightweight Python-based monitoring agent designed to track system CPU and Mem
 - **Self-Healing Logic**: Includes a "Recovery" notification when resource pressure subsides.
 - **Environment Isolation**: Configured for Python Virtual Environments (`venv`) for consistent deployment.
 - **Safe Config**: Uses a decoupled `config.json` to keep sensitive Webhook URLs out of the source code.
+### 1. Clone the repository
+```bash
+# Clone the project from GitHub
+git clone [https://github.com/daminghuang/sre-monitor-bot.git](https://github.com/daminghuang/sre-monitor-bot.git)
+
+# Enter the project directory
+cd sre-monitor-bot/scripts
+
+```
 
 ## 🛠 Prerequisites
 - Python 3.x
