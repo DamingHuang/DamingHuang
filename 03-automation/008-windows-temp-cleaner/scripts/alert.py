@@ -5,23 +5,23 @@ import os
 import glob
 
 def load_config(file_path):
-    """智能加载配置文件，自动处理不同编码"""
+    """Intelligently load config file, auto-handle different encodings"""
     try:
-        # 方法1: 尝试 UTF-8
+        # Method 1: Try UTF-8
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except UnicodeDecodeError:
-        # 方法2: 尝试 UTF-8-sig (处理 BOM)
+        # Method 2: Try UTF-8-sig (handle BOM)
         try:
             with open(file_path, 'r', encoding='utf-8-sig') as f:
                 return json.load(f)
         except:
-            # 方法3: 尝试 UTF-16
+            # Method 3: Try UTF-16
             try:
                 with open(file_path, 'r', encoding='utf-16') as f:
                     return json.load(f)
             except:
-                # 方法4: 最后手段 - 自动检测编码
+                # Method 4: Last resort - auto-detect encoding
                 import chardet
                 with open(file_path, 'rb') as f:
                     raw_data = f.read()
@@ -30,10 +30,10 @@ def load_config(file_path):
                     if encoding:
                         return json.loads(raw_data.decode(encoding))
                     else:
-                        raise Exception("无法检测文件编码")
+                        raise Exception("Unable to detect file encoding")
     except Exception as e:
         print(f"❌ Configuration Error: {e}")
-        print(f"💡 提示: 请确保 config.json 文件存在且格式正确")
+        print(f"💡 Hint: Please ensure config.json exists and has correct format")
         return None
 
 def send_discord_alert(webhook_url, message, color=15158332):
@@ -55,32 +55,32 @@ def send_discord_alert(webhook_url, message, color=15158332):
         print(f"❌ Failed to send alert: {e}")
 
 def monitor_log(log_path):
-    # 获取脚本所在目录
+    # Get script directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     config_path = os.path.join(script_dir, "config.json")
     
-    # 加载配置
+    # Load configuration
     config = load_config(config_path)
     if not config:
-        print("❌ 无法加载配置文件，请检查 config.json")
+        print("❌ Failed to load config file, please check config.json")
         return
     
-    print("🚀 开始处理日志...")
-    print(f"📁 文件: {log_path}")
+    print("🚀 Starting log processing...")
+    print(f"📁 File: {log_path}")
     
     try:
-        # 检查文件是否存在
+        # Check if file exists
         if not os.path.exists(log_path):
-            print(f"❌ 日志文件不存在: {log_path}")
+            print(f"❌ Log file does not exist: {log_path}")
             return
         
         with open(log_path, "r", encoding="utf-8", errors='ignore') as f:
             lines = f.readlines()
         
-        print(f"📄 找到 {len(lines)} 行日志")
+        print(f"📄 Found {len(lines)} log lines")
         
         for line in lines:
-            print(f"处理: {line.strip()}")
+            print(f"Processing: {line.strip()}")
             
             if "❌" in line or "failed" in line.lower():
                 send_discord_alert(
@@ -101,24 +101,24 @@ def monitor_log(log_path):
                     color=3066993
                 )
         
-        print(f"✅ 处理完成！共处理 {len(lines)} 行日志")
+        print(f"✅ Processing completed! Processed {len(lines)} log lines")
         
     except Exception as e:
-        print(f"⚠️ 读取日志出错: {e}")
+        print(f"⚠️ Error reading log: {e}")
 
 if __name__ == "__main__":
-    # 获取脚本所在目录
+    # Get script directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # 查找最新的日志文件
+    # Find the latest log file
     log_files = glob.glob(os.path.join(script_dir, "cleanup_log_*.txt"))
     
     if log_files:
-        # 找到最新修改的日志文件
+        # Find the most recently modified log file
         latest_log = max(log_files, key=os.path.getmtime)
-        print(f"📂 找到最新日志: {os.path.basename(latest_log)}")
+        print(f"📂 Found latest log: {os.path.basename(latest_log)}")
         monitor_log(latest_log)
     else:
-        print("❌ 没有找到 cleanup_log_*.txt 文件！")
-        print(f"📁 请在 {script_dir} 目录下放置日志文件")
-        print("💡 提示: 可以先创建空的测试日志文件")
+        print("❌ No cleanup_log_*.txt files found!")
+        print(f"📁 Please place log files in {script_dir} directory")
+        print("💡 Hint: You can create an empty test log file first")	
