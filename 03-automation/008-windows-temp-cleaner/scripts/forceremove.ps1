@@ -155,6 +155,6 @@ Write-Log "Cleanup script finished" "White"
 Write-Log "Log saved to: $global:LogFile" "White"
 Write-Log "========================================" "White"
 
-$runpython ="C:\Users\DM27\Desktop\scripts\alert\part1\alert.py"
+$runpython = you python file path"
 python $runpython
 
