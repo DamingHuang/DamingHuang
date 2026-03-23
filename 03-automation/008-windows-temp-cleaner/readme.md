@@ -59,33 +59,22 @@ The script uses a progressive approach:
 | `%LOCALAPPDATA%\Temp\*` | User application temporary files (browser caches, installer leftovers) |
 
 ## 🖥️ How It Works
-Start
-│
-├─→ Elevate to Administrator
-│
-├─→ Download/Verify handle.exe
-│
-├─→ For each target folder:
-│ │
-│ ├─→ Try direct deletion
-│ │ │
-│ │ ├─→ Success → Log ✓
-│ │ └─→ Fail (locked file) → Continue
-│ │
-│ ├─→ Identify locking process using handle.exe
-│ │
-│ ├─→ Is process system-critical?
-│ │ │
-│ │ ├─→ Yes → Skip (protected)
-│ │ └─→ No → Terminate process
-│ │
-│ ├─→ Wait 1 second
-│ │
-│ ├─→ Retry deletion
-│ │ │
-│ │ ├─→ Success → Log ✓
-│ │ └─→ Still fails → Schedule for reboot
-│ │
-│ └─→ Log result
-│
-└─→ Send Discord alert with summary
+
+ 1. **Elevate** to administrator privileges
+2. **Download/Verify** Sysinternals Handle.exe
+3. **For each target folder**:
+   - Try direct deletion
+     - ✅ Success → Log and continue
+     - ❌ Fail (locked file) → Continue to investigation
+   - **Identify locking process** using Handle.exe
+   - **Check if system-critical**:
+     - 🛡️ Yes → Skip (protected)
+     - ⚡ No → Terminate the process
+   - **Wait 1 second** for process to fully exit
+   - **Retry deletion**:
+     - ✅ Success → Log success
+     - ❌ Still fails → Schedule for deletion on reboot
+   - **Log result** for this folder
+4. **Send Discord/Slack/etc.  alert** with summary of all operations
+ 
+ 
