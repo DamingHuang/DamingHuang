@@ -9,8 +9,8 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # ============================================================
 # Global Log Setup
 # ============================================================
-# Auto-create log folder next to the script, fallback to Desktop
-$global:ScriptDir = if ($PSScriptRoot) { $PSScriptRoot } else { "$env:USERPROFILE\Desktop\scripts\alert\part1" }
+$global:ScriptDir = "C:\YOUR\PATH\HERE"
+
 if (-not (Test-Path $global:ScriptDir)) { New-Item -ItemType Directory -Path $global:ScriptDir -Force | Out-Null }
 $global:LogFile = "$($global:ScriptDir)\cleanup_log_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"
 
@@ -35,7 +35,7 @@ function Get-HandleExe {
     $local = Join-Path $global:ScriptDir "handle.exe"
     if (Test-Path $local) { return $local }
 
-    Write-Log "📥 handle.exe not found, downloading..." "Yellow"
+    Write-Log "handle.exe not found, downloading..." "Yellow"
     try {
         $zipPath = Join-Path $env:TEMP "Handle.zip"
         Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Handle.zip" `
@@ -44,11 +44,11 @@ function Get-HandleExe {
         Remove-Item $zipPath -Force
         $handlePath = Join-Path $global:ScriptDir "handle.exe"
         & $handlePath -accepteula | Out-Null
-        Write-Log "✅ handle.exe downloaded successfully" "Green"
+        Write-Log "handle.exe downloaded successfully" "Green"
         return $handlePath
     }
     catch {
-        Write-Log "❌ Download failed: $($_.Exception.Message)" "Red"
+        Write-Log "Download failed: $($_.Exception.Message)" "Red"
         return $null
     }
 }
@@ -62,23 +62,23 @@ function Remove-WithForce {
     $handleExe = Get-HandleExe
 
     foreach ($Path in $Paths) {
-        Write-Log "🗂️  Processing: $Path" "Cyan"
+        Write-Log "Processing: $Path" "Cyan"
 
         # First attempt - delete directly
         try {
             Remove-Item -Path $Path -Recurse -Force -ErrorAction Stop
-            Write-Log "✅ Deleted successfully: $Path" "Green"
+            Write-Log "Deleted successfully: $Path" "Green"
             continue
         }
         catch {
             $errorMsg = $_.Exception.Message
-            Write-Log "❌ Delete failed: $errorMsg" "Red"
+            Write-Log "Delete failed: $errorMsg" "Red"
         }
 
         # Find the locked file
         if ($errorMsg -match "'(.+?)' because it is being used") {
             $lockedFile = $Matches[1]
-            Write-Log "🔍 Locked file: $lockedFile" "Yellow"
+            Write-Log "Locked file: $lockedFile" "Yellow"
 
             if ($handleExe) {
                 $handleOutput = & $handleExe $lockedFile -accepteula 2>&1
@@ -90,27 +90,27 @@ function Remove-WithForce {
                         $procName = $Matches[1].Trim()
                         $procPID  = [int]$Matches[2]
 
-                        Write-Log "⚠️  Locking process: $procName (PID: $procPID)" "Yellow"
+                        Write-Log "Locking process: $procName (PID: $procPID)" "Yellow"
 
                         # Protect critical system processes
                         $protected = @("System","smss","csrss","wininit","winlogon","lsass","services")
                         if ($procName -in $protected) {
-                            Write-Log "🛡️  System process, skipping: $procName" "Red"
+                            Write-Log "System process, skipping: $procName" "Red"
                             continue
                         }
 
                         try {
                             Stop-Process -Id $procPID -Force -ErrorAction Stop
-                            Write-Log "✅ Process terminated: $procName (PID: $procPID)" "Green"
+                            Write-Log "Process terminated: $procName (PID: $procPID)" "Green"
                         }
                         catch {
-                            Write-Log "❌ Cannot terminate: $procName" "Red"
+                            Write-Log "Cannot terminate: $procName" "Red"
                         }
                     }
                 }
 
                 if (-not $foundAny) {
-                    Write-Log "⚠️  No locking process found" "Yellow"
+                    Write-Log "No locking process found" "Yellow"
                 }
             }
 
@@ -120,18 +120,18 @@ function Remove-WithForce {
             # Second attempt
             try {
                 Remove-Item -Path $Path -Recurse -Force -ErrorAction Stop
-                Write-Log "✅ Second attempt succeeded: $Path" "Green"
+                Write-Log "Second attempt succeeded: $Path" "Green"
             }
             catch {
                 # Last resort: schedule delete on reboot
-                Write-Log "❌ Still failing, scheduling delete on reboot..." "Red"
+                Write-Log "Still failing, scheduling delete on reboot..." "Red"
                 $regPath = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager"
                 $entry   = [string[]]@("\??\" + $lockedFile, "")
                 $current = (Get-ItemProperty -Path $regPath -Name "PendingFileRenameOperations" `
                             -ErrorAction SilentlyContinue).PendingFileRenameOperations
                 Set-ItemProperty -Path $regPath -Name "PendingFileRenameOperations" `
                                  -Value ($current + $entry)
-                Write-Log "🔁 Scheduled for deletion on reboot: $lockedFile" "Yellow"
+                Write-Log "Scheduled for deletion on reboot: $lockedFile" "Yellow"
             }
         }
     }
@@ -155,6 +155,6 @@ Write-Log "Cleanup script finished" "White"
 Write-Log "Log saved to: $global:LogFile" "White"
 Write-Log "========================================" "White"
 
-$runpython = you python file path"
-python $runpython
-
+$runpython = "C:\YOUR\PATH\HERE"
+#To find your Python path, run in PowerShell: where.exe python
+& "C:\YOUR\PATH\TO\python.exe"  $runpython  
