@@ -1,0 +1,170 @@
+section{
+    margin-top: 20px;
+}
+
+/* clr-btn */
+.clr-btn-div{
+    display: flex;
+    justify-content: center;
+}
+
+.clrBtnContainer{
+    position: absolute;
+    margin-left:-52px;
+}
+
+.colorBtnContainer{
+    position: relative;  
+}       
+
+/* moved here so .btn classes can override */
+.postIt-Item{
+     background-color: powderblue;
+}
+
+/* Removing width and border from .btn-* classes as they are the same as those declared in button
+ *  - changing property to background-color to make it more specific
+ * Note the 'button' selector will select ANY button on the page - consider making this more specific
+ * - for example to apply styles only to color buttons '.colorBtnContainer .btn' would exclude any button-
+ *   -which is not inside the colorBtnContainer and without the .btn class 
+ */
+button {
+    border:solid 1px black;
+    width:50px;
+    height:30px;
+    cursor: pointer;
+}
+
+.collapsible{background-color: transparent; border: none; width:50px; height:30px;}
+/* .btn-1{ background:#a1ef9b; width:25px;border:solid 1px black;}
+.btn-2{ background:#ffafdf; width:25px;border:solid 1px black;}
+.btn-3{ background:#d7afff; width:25px;border:solid 1px black;}
+.btn-4{ background:#9edfff; width:25px;border:solid 1px black;}
+.btn-5{ background:#d1d1d1; width:25px;border:solid 1px black;}
+.btn-6{ background:#767676; width:25px;border:solid 1px black;} */
+.btn-1{ background-color:#a1ef9b; }
+.btn-2{ background-color:#ffafdf; }
+.btn-3{ background-color:#d7afff; }
+.btn-4{ background-color:#9edfff; }
+.btn-5{ background-color:#d1d1d1; }
+.btn-6{ background-color:#767676; }
+
+ 
+.content {
+padding: 0 18px;
+display:block;
+overflow:hidden;
+background-color: #f1f1f1;
+
+
+}
+.dropdown-content{
+  visibility: hidden;
+}
+
+
+.postIt-form{
+     width:30%;
+    overflow: hidden;
+   margin-left:200px;
+justify-content: center;
+
+}
+.btn-container{
+    background-color:#fff2ab;    ;
+
+    }
+
+/* This class will override same properties in earlier selector - read up on specificity
+ * - border: none will override 'border:solid 1px black';
+ */
+button{
+    background-color:transparent;
+    border: none;
+}
+
+.fa-plus{
+    color:black;
+}
+.fa-plus:hover{
+    color:white;
+}
+.text{
+    background-color:#fff7d1;
+}
+textarea{
+    background-color:transparent;
+    border:none;
+    resize:none;
+   overflow: hidden;
+   outline: none;
+}
+
+/* Post-it Note */
+.postIt-container{
+
+     display: flex;
+     justify-content: center;
+    visibility: hidden;
+}
+
+.show-container {
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+     
+  }
+.postIt-Items-container{
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    /* grid-template-rows: 250px; */
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    border: white;
+
+    height: auto;
+    grid-auto-rows: 250px;
+}
+
+/* moving this above .btn-* classes for specificity reasons
+ * THis will be the starting color, the .btn-* will override*/
+/* .postIt-Item{
+     background-color: powderblue;
+} */
+.postIt-item-btn-container{
+    float: right;
+}
+.fa-trash{
+    color:#a49c6e;
+ }
+
+ .fa-trash:hover{
+    color:#131312;
+ }
+
+    /* alert */
+    .alert {
+        margin-bottom: 1rem;
+        height: 1.25rem;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        font-size: 0.7rem;
+        border-radius: 0.25rem;
+
+        text-transform: capitalize;
+      }
+      .alert-danger {
+        color: #721c24;
+        background: #f8d7da;
+      }
+      .alert-success {
+        color: #155724;
+        background: #d4edda;
+      }
+ 
+        .formwrap{
+            display: flex;
+            justify-content: center;
+            margin-top: -50px;
+        }

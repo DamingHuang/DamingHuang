@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DevJane Portfolio Website</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+        <!-- Update these with your own fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+    <body>
+        <header>
+         
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About me</a></li>
+                    <li class="nav__item"><a href="index.html#work" class="nav__link">My Work</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <section class="intro">
+            <h1 class="section__title section__title--intro">
+                  <strong>Web Game App  </strong>
+            </h1>
+            <p class="section__subtitle section__subtitle--intro">QCC Boot Camp</p>
+          <img src="img\bootcamp\guess.png" alt="" class="intro__img">
+        </section>
+
+        <div class="portfolio-item-individual">
+            <p> Here are the guide lines of the 3rd project of the Boot Camp. </p>
+            <img src="img/portfolio-details.jpg" alt="">
+            <p> <a class="portfolio-item-individual" href="num3index.html">To the project</a></p>
+             
+            <p> Instructions: Project 3 consists of creating a web game app. The purpose of project 3 is to use the knowledge 
+                of HTML, CSS, JavaScript and DOM to create a simple game app.
+                <br>
+                <b>Project 3 Game Rules:</b> <br>
+                Guess a number between 1 and 100.  The program will generate a secret number which will be hidden. Players need to guess the number by typing the number into a box (input element).  Initial score is 10. High Score is 0.
+
+            </p>
+            <p>
+                  <p>
+                      
+                    <ol>
+                        <li>When there is no input or invalid value, and user press check button, 
+                            there is message showing no input or invalid value.   </li>
+                        <li>When user put a wrong number, and user press check button, message shows 
+                            it is too low or too high. There is a score starting from 10 and will be 
+                            decreasing by 1 every time when user guesses a wrong number.  </li>
+                        <li> When user put a correct number, background color changes, the secret 
+                            number shows, background with of secret number changes, and high score will 
+                            be updated with new high score or remain the same.  </li>
+                            <br>
+                            <b>Implement game rest functionality, so that the player can make a new guess!</b>
+                    </ol>
+                            <br>
+                           
+                         
+                            
+                     <ol>
+                         <li>Select the element with the 'Play' class and attach a click event handler </li>
+                         <li>In the handler function, restore initial values of the 'score' and 
+                            'secretNumber' variables </li>
+                        <li>Restore the initial conditions of the message, number, score and guess 
+                            input fields</li>
+                        <li>Also restore the original background color and number’s background width 
+                            and color. </li>
+
+
+                            <b> Initial Status (same as after clicking on Play! button. Highscore value might be different)</b>
+                            <br>
+                            <img src="img\bootcamp\p3p1.png" alt=""> <br>
+                            If user puts a number greater than secret number, it shows as below: <br>
+                            <img src="img\bootcamp\p3p2.png" alt=""> <br>
+                            If user puts a number less than secret number, it shows as below:  <br>
+                            <img src="img\bootcamp\p3p3.png" alt=""> <br>
+                             If user doesn’t put a number (also try to add invalid input condition) and click on the Check! button, it should show:  <br>
+                             <img src="img\bootcamp\p3p4.png" alt=""> <br>  
+                             When user types the correct secret number, it shows: <br>
+                             <img src="img\bootcamp\p3p5.png" alt=""> <br>  
+                         
+                             Click on Play button to restart the game. Note: the <b>highest score</b> of previous user should be shown in new game.
+                             <img src="img\bootcamp\p3p6.png" alt=""> <br>  
+                     </ol>       
+                            
+                     </p>   
+
+                      
+                </div>
+      <!-- Footer -->
+        <footer class="footer">
+            <!-- replace with your own email address -->
+            <a href="mailto:Daminghuang727@gamil.com" class="footer__link">Daminghuang727@gamil.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://codepen.io">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="http://dribbble.com">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://twitter.com">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+
+
+        <script src="index.js"></script>
+    </body>
+</html>
