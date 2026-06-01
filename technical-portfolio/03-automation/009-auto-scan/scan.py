@@ -320,6 +320,8 @@ def scan_folder(folder_path: str):
     for root, dirs, files in os.walk(folder_path):
         for fname in sorted(files):
             filepath = os.path.join(root, fname)
+            if os.path.abspath(filepath) == os.path.abspath(__file__):
+               continue  # Skip the scanner script itself   
             try:
                 size = os.path.getsize(filepath)
                 if size > MAX_FILE_SIZE:
