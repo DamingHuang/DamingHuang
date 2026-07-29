@@ -28,11 +28,11 @@ $ScannerScript = Join-Path $PSScriptRoot "scan.py"
 
 ``` text
 C:\Users\user\Desktop\test\New folder (2)\
-├── net.ps1
+├── scan.ps1
 └── scan.py
 ```
 
-If the project was moved to another location, the path inside `net.ps1`
+If the project was moved to another location, the path inside `scan.ps1`
 had to be changed manually.
 
 ------------------------------------------------------------------------
@@ -47,11 +47,11 @@ For example:
 
 ``` text
 D:\SecurityScanner\
-├── net.ps1
+├── scan.ps1
 └── scan.py
 ```
 
-When `net.ps1` runs:
+When `scan.ps1` runs:
 
 ``` text
 $PSScriptRoot
@@ -86,7 +86,7 @@ The project can therefore be moved without changing the absolute path to
 
 ``` text
 SecurityScanner\
-├── net.ps1
+├── scan.ps1
 ├── scan.py
 ├── start.vbs
 ├── scan_history.json
@@ -96,7 +96,7 @@ SecurityScanner\
 The important relationship is:
 
 ``` text
-net.ps1
+scan.ps1
    │
    │ $PSScriptRoot
    ▼
@@ -107,7 +107,7 @@ Project Directory
 scan.py
 ```
 
-As long as `net.ps1` and `scan.py` keep the expected relative structure,
+As long as `scan.ps1` and `scan.py` keep the expected relative structure,
 the parent project directory can be moved.
 
 ------------------------------------------------------------------------
@@ -177,7 +177,7 @@ If the monitored folder is also stored inside the project:
 
 ``` text
 SecurityScanner\
-├── net.ps1
+├── scan.ps1
 ├── scan.py
 └── scan\
 ```
